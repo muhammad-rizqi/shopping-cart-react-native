@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 const ShoppingCart = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator headerMode={false}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Products" component={ProductsScreen} />
         <Stack.Screen name="Cart" component={CartScreen} />

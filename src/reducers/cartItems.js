@@ -1,8 +1,11 @@
+import {initialWindowMetrics} from 'react-native-safe-area-context';
+
 const cartItems = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
-      const product = {...action.payload};
-      return [...state, product];
+      const product = action.payload;
+      const notProduct = state.filter((item) => item.id != product.id);
+      return [...notProduct, product];
     case 'INCREASE_CART_QTY':
       const item = {...action.payload, qty: action.payload.qty + 1};
       return state.map((cartItems) =>
